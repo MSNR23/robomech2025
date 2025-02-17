@@ -1,0 +1,162 @@
+\section{積載物が転がらず滑らない条件の定式化}
+\subsection{積載物とロボットのモデル化}
+\label {2.1}
+\begin{figure}[t]
+    \begin{center}
+    \includegraphics[width=70mm]{./fig/robot_load_model_2.eps}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Rigid model of a robot body and load}
+    % \vspace*{-1cm}
+    \figlabel{robot_load_model.eps}
+  \end{center}
+  \end{figure}
+  
+ロボットに搭載した物が転がり始めず，滑り始めない条件を定式化するために
+積載物とロボットを\figref{robot_load_model.eps}に示す剛体にモデル化した．
+積載物モデルの底面形状は長方形とし，質量を${m}_{\mathrm{l}}$
+，重心位置を$\bm{c}_{\mathrm{l}}$とする．
+一方，ロボットモデルは積載物との接触部分のみを考慮するために，
+ボディのみを長方形の剛体としてモデル化し，重心位置を
+$\bm{c}_{\mathrm{r}}$とする．
+また，ロボットボディの並進運動による影響のみに着目するために，
+ロボットボディの慣性モーメントは無限大と
+みなし，回転運動は生じないものとする．
+積載物とロボットボディ間に作用する
+摩擦力の合力を$\bm{f}$，垂直抗力の合力を$\bm{N}$で表し，それら反力の
+作用点(圧力中心)を$\bm{p}$とする．$\bm{g}$は重力
+加速度である．\\%[m/${\mathrm{s}^2}$]
+　ここで，積載物が転がり始めるのは摩擦力$\bm{f}$よる重心周りのモーメント
+と垂直抗力$\bm{N}$による重心周りのモーメントの和が$\bm{0}$より大きくなった
+ときである．
+したがって，積載物が転がり始めない摩擦力の範囲は\equref{1.1}で表される．
+\begin{eqnarray}
+  \equlabel{1.1}
+  \bm{f} &\leq&-{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}^{-1}{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}\bm{N}\\
+  \bm{s}_{\mathrm{l}} &=&\bm{p}-\bm{c}_{\mathrm{l}}\\
+  \bm{s}_{\mathrm{l}} &=&\left[
+    \begin{array}{ccc}
+      {s}_{\mathrm{lx}} & {s}_{\mathrm{ly}} & {s}_{\mathrm{lz}}
+    \end{array}
+    \right]^{\mathrm{T}}
+\end{eqnarray}
+ここで，${[　]}_{\mathrm{x}}$は歪対称行列を表す演算子，
+$\bm{s}_{\mathrm{l}}$は積載物の重心から見た時の圧力中心の位置である．
+
+積載物が転がり始める瞬間において，圧力中心$\bm{p}$は積載物底面の辺と端に
+移動し，辺と端を回転中心として転がり始める．そのため，転がり始める瞬間
+の${s}_{\mathrm{lx}}$，${s}_{\mathrm{ly}}$は積載物の重心投影点と辺までの長さに，
+${s}_{\mathrm{lz}}$は重心の底面からの高さに等しくなる．\\
+
+\subsection{積載物の転がりと滑りの条件分の定式化}
+転がりが先に起こる場合と滑りが先に起こる場合の条件分を定式化する．
+\equref{1.1}で表される積載物が転がり始める
+摩擦力の絶対値よりも最大静止摩擦力の絶対値が大きい場合は転がりが
+先に起こり，小さい場合は滑りが先に起こる．
+したがって，\equref{1.1}より転がりが先に起こる場合と，
+滑りが先に起こる場合の条件分は以下で表される．\\
+\begin{eqnarray}
+  \equlabel{1.2}
+  |-{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}^{-1}{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}\bm{e}_{\mathrm{z}}|\leq{\mu}
+\end{eqnarray}
+ここで，$\mu$は積載物とロボットボディ間の最大静止摩擦係数，
+$\bm{e}_{\mathrm{z}}$はz成分のみ1となる単位ベクトルである．
+右辺が$\mu$以下であれば転がりの方が先に起こり，滑りは生じない．
+$\mu$より大きければ滑りの方が先に起こり，転がりは生じない．\\
+　ここで，$x$方向のみの場合を考えると
+\equref{1.2}は\equref{1.3}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.3}
+  \frac{{s}_{\mathrm{lx}}}{{s}_{\mathrm{lz}}}\leq{\mu}
+\end{eqnarray}
+\equref{1.3}より積載物の転がりと滑りのどちらが先に起こるかは，
+積載物をロボットに乗せる前に判断できる．
+% 転がりが先に起こる場合は，\equref{1.1}で表される積載物が転がり始める
+% 摩擦力の絶対値よりも最大静止摩擦力の絶対値が大きい場合である．
+% 一方で滑りが先に起こる場合は，
+% 転がり始める摩擦力の絶対値よりも最大静止摩擦力の絶対値が小さい場合である．
+
+\subsection{積載物が転がり始めない条件の定式化}
+\label {2.3}
+積載物の転がり始めない条件について考える．
+積載物とロボットボディ間に生じる摩擦力は主に積載物に作用する重力とロボットボディ
+の重心加速度が起因で生じている．また，転がりが生じる瞬間においては積載物とロボットボディ
+の間に滑りは生じていないため，${\ddot{\bm{c}}_{\mathrm{l}}}={\ddot{\bm{c}}_{\mathrm{r}}}$が成立する．
+したがって，転がりが生じる瞬間におけるロボットボディの加速度の範囲は\equref{1.1}より
+\equref{1.4}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.4}
+  {\ddot{\bm{c}}_{\mathrm{rH}}} &\leq& -{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}^{-1}{[\bm{s}_{\mathrm{l}}]}_{\mathrm{x}}({\ddot{\bm{c}}_{\mathrm{rV}}}+\bm{g})\\
+  \bm{c}_{\mathrm{r}} &=&\left[
+    \begin{array}{ccc}
+      {c}_{\mathrm{rx}} & {c}_{\mathrm{ry}} & {c}_{\mathrm{rz}}
+    \end{array}
+    \right]^{\mathrm{T}}\\
+  \bm{c}_{\mathrm{rH}} &=&\left[
+    \begin{array}{ccc}
+      {c}_{\mathrm{rx}} & {c}_{\mathrm{ry}} & 0
+    \end{array}
+    \right]^{\mathrm{T}}\\
+  \bm{c}_{\mathrm{rV}} &=&\left[
+    \begin{array}{ccc}
+      0 & 0 & {c}_{\mathrm{rz}}
+    \end{array}
+    \right]^{\mathrm{T}}\\
+  \bm{g} &=&\left[
+    \begin{array}{ccc}
+      0 & 0 & g
+    \end{array}
+    \right]^{\mathrm{T}}
+\end{eqnarray}
+% \begin{bmatrix}
+%   1 & 0 & 0 \\
+%   0 & 1 & 0\\
+%   0 & 0 & 0  
+% \end{bmatrix}
+% \bm{c}_{\mathrm{r}}  \\
+% \bm{c}_{\mathrm{rV}} &=&
+% \begin{bmatrix}
+%   0 & 0 & 0 \\
+%   0 & 0 & 0\\
+%   0 & 0 & 1  
+% \end{bmatrix}
+% \bm{c}_{\mathrm{r}} 
+　ここで，$x$方向のみの場合を考えると
+\equref{1.4}は\equref{1.5}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.5}
+  {\ddot{c}_{\mathrm{rx}}} &\leq& \frac{{s}_{\mathrm{lx}}}{{s}_{\mathrm{lz}}}({\ddot{c}_{\mathrm{rz}}}+{g})
+\end{eqnarray}
+したがって，\equref{1.5}の範囲内になるようにロボットボディの加速度を制御すれば，
+積載物の転がりを抑制できる．
+
+\subsection{積載物が滑り始めない条件の定式化}
+\label {2.4}
+積載物の滑り始めない条件について考える．
+転がりと同様に，滑りが生じる瞬間においては
+${\ddot{\bm{c}}_{\mathrm{l}}}={\ddot{\bm{c}}_{\mathrm{r}}}$が成立する．
+したがって，滑りが生じる瞬間におけるロボットボディの加速度は\equref{1.6}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.6}
+  |{\ddot{\bm{c}}_{\mathrm{rH}}}| &\leq& \mu({\ddot{c}_{\mathrm{rz}}}+g)
+\end{eqnarray}
+　ここで，$x$方向のみの場合を考えると
+\equref{1.6}は\equref{1.7}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.7}
+  {\ddot{c}_{\mathrm{rx}}} &\leq& \mu({\ddot{c}_{\mathrm{rz}}}+{g})
+\end{eqnarray}
+したがって，\equref{1.7}の範囲内になるようにロボットボディの加速度を制御すれば，
+積載物の滑りを抑制できる．
+% 　したがって，転がりと同様に積載物が転がり始めないためには\equref{1.7}を
+% 満たすようにロボットボディの加速度を制御すればいい．
+
+% 転がりよりも滑りよりが先に起こる場合について考える．\\
+% 　滑りが生じる瞬間における積載物の加速度は\equref{1.1}，〇〇より
+% \equref{1.6}で表される．\\
+% 　このとき，積載物とロボットボディの間に滑りは生じているいないため，〇〇を満たす．
+% したがって，転がりが生じる瞬間におけるロボットの加速度は\equref{1.6}で表される．\\
+% 　ここで，わかりやすくするためにロボットの加速度\equref{1.6}を二次元の場合で考える．
+% このとき\equref{1.6}は\equref{1.7}で表される．\\
+% 　したがって，積載物が転がり始めないためには\equref{1.7}を満たすように
+% ロボットのボディの加速度を制御すればいい．
+

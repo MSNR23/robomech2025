@@ -1,0 +1,78 @@
+\documentclass[dvipdfmx]{jarticle}
+\usepackage{robomech}
+\usepackage{graphicx}
+\usepackage{ikuo}%%便利コマンド集．
+\usepackage{siunitx}
+\usepackage{jtygm}
+\usepackage{bm}
+\usepackage{balance}
+\usepackage{amssymb}
+\usepackage{here}
+\usepackage{amsmath}
+\usepackage{otf}%難しい「高」を追加するためのusepackage
+\usepackage{url}
+\newcommand{\FIGDIR}{./fig}%図を置くディレクトリを指定する．
+
+\begin{document}
+\makeatletter
+\title{投擲物の重さや身体のパラメータに応じた投擲フォーム戦略の研究}
+{\vspace{-7 mm} }
+{Research on Throwing Form Strategies\\according to Weight of the Thrown Objects or Body Parameters}
+{}
+
+\author{
+\begin{tabular}{ll}
+ \hspace{1zw}学\hspace{1zw}伊藤浩平 (東京農工大)& 
+ \hspace{1zw}\hspace{1zw}森下克幸 (東京農工大)\\ 
+ \hspace{1zw}○正\hspace{1zw}水内郁夫 (東京農工大)\\
+ % ※協賛・後援団体の会員資格で発表される場合は「正・学」は不要です．
+ \end{tabular}
+ % &\\
+ \vspace{1zh} \\
+ \begin{tabular}{l}
+{\small Kohei ITO, TUAT, k-ito-rm25@mizuuchi.lab.tuat.ac.jp
+}\\
+{\small Katsuyuki MORISHITA, TUAT, morishita@mizuuchi.lab.tuat.ac.jp
+}\\
+{\small Ikuo MIZUUCHI, TUAT, ikuo@mizuuchi.lab.tuat.ac.jp}
+\end{tabular}
+}
+\makeatother
+
+\abstract{ \small 
+There are many sports in which throwing movements are performed, but the throwing form differs between competitions and individuals. Although research specific to a particular sport has been conducted, a general theory related to the strategies on which various throwing forms are based has not been established. In this research, we derive various throwing forms using reinforcement learning, and we examine, consider, and discuss their strategies. Verification has identified throwing form strategies according to the weight of the thrown objects and arm length. The method used in this research was able to also show to be useful in discussing throwing form strategies.
+}
+ 
+\date{} % 日付を出力しない
+\keywords{Throwing form, Strategy, Reinforcement learning}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\small
+
+% \input{chap_1}
+% \input{chap_2}
+% \input{chap_3}
+% \input{chap_4}
+\input{robomech}
+
+\section{結論および今後の展望}
+本研究では投擲物の重さや身体のパラメータに応じた投擲フォームを導出・比較することで，パラメータに応じた投擲フォーム戦略を考察した．まず，剛体1リンクモデルでの強化学習を用いたリンク速度最適化シミュレーションにより，自作した強化学習シミュレータと手法の有用性を確認した．その後，腕に見立てた2次元剛体2リンクモデルへと拡張し，投擲物の重さや腕の長さに応じた投擲フォーム戦略の考察を行い，パラメータに応じた投擲フォーム戦略を考察した．その後，より人間に近い3次元の腕モデルへと拡張し，投擲物の重さや腕の長さに応じた投擲フォーム戦略について考察を行った．投擲物の重さに応じた遠投をするための投擲フォーム戦略の比較の結果，腕の押し出し度合いによる戦略の違いがみられた．また，腕の長さに応じた遠投をするための投擲フォーム戦略の比較の結果，投擲開始から慣性モーメントの影響により挙動に違いが生じたが，ともに運動連鎖による肩関節の回転を重要視した戦略がみられた．また，本研究の手法は投擲フォーム戦略を考察することにおいて有用であることを示した．\\
+　今後の展望として，深層強化学習を用いたトルクの連続値入力による学習，変更する投擲物の重さや身体のパラメータの種類の増加がある．また，本研究では2次元から3次元の拡張で新たに追加された要素によって新たな戦略もみられた．そのため，体幹の追加や全身モデルでの学習による投擲フォーム戦略の考察により，全身の運動連鎖の傾向等，より実際の人間に近い投擲フォーム戦略の考察が可能であると考えられる．加えてさまざまなスポーツに応じたルール制約を設けた学習により，実際の競技や個人に応じた投擲フォーム戦略がみられると考えられる．
+
+% 　今後の展望としては，本論文の検証内容を我々が開発した
+% 小型の実機にて検証実験を行う．
+% 加えて，積載物の転がらず滑らない条件を一般化し，それを満たす歩行方法を3次元LIPMを基に定式化する．
+% そして，シミュレーションと実機を用いて検証を行う．
+% 最終的には，人が乗れるサイズの実機を開発し，積載物を落とさない搬送を実現する．
+
+
+\footnotesize
+
+\bibliography{reference} % 拡張子を外したbibファイル
+\bibliographystyle{junsrt} % 参考文献出力のスタイル
+
+\normalsize
+\end{document}

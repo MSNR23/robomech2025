@@ -1,0 +1,16 @@
+*.dvi
+*.aux
+*.log
+*.blg
+*.bbl
+*.toc
+*.out
+*.pdf
+out2uni
+*.bb
+*~
+*#
+*.fls
+*.fdb_latexmk
+!main.pdf
+!yokoyama*

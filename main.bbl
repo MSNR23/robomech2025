@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}
+
+\bibitem{sanada}
+眞田将人.
+\newblock 野球のピッチングにおける球速と投球フォームの関係性について.
+\newblock PhD thesis, びわこ成蹊スポーツ大学, 2011.
+
+\bibitem{kuromatsu}
+黒松直人, 瓜田吉久, 倉吉東高等学, 鹿屋体育大学.
+\newblock
+  砲丸投げグライド投法における投げ動作改善のためのトレーニング方法の提案.
+\newblock スポーツパフォーマンス研究, Vol.~4, pp. 59--70, 2012.
+
+\bibitem{kageyama}
+蔭山雅洋, 鈴木智晴, 前田明.
+\newblock 発育期の野球選手における投手と野手の投球速度に及ぼす体力要因の検討.
+\newblock 体育学研究, Vol.~65, pp. 401--413, 2020.
+
+\bibitem{tsuboi}
+坪井一洋.
+\newblock 3 自由度投射モデルによる砲丸投げ投法の特徴付け.
+\newblock 日本機械学会論文集 C 編, Vol.~77, No. 775, pp. 943--952, 2011.
+
+\bibitem{burkhart}
+Stephen~S Burkhart, Craig~D Morgan, and W~Ben Kibler.
+\newblock The disabled throwing shoulder: spectrum of pathology part iii: The
+  sick scapula, scapular dyskinesis, the kinetic chain, and rehabilitation.
+\newblock {\em Arthroscopy}, Vol.~19, No.~6, pp. 641--661, 2003.
+
+\bibitem{watkins}
+Christopher~JCH Watkins and Peter Dayan.
+\newblock Q-learning.
+\newblock {\em Machine learning}, Vol.~8, pp. 279--292, 1992.
+
+\bibitem{greedy}
+Michel Tokic.
+\newblock Adaptive $\varepsilon$-greedy exploration in reinforcement learning
+  based on value differences.
+\newblock In {\em Annual conference on artificial intelligence}, pp. 203--210.
+  Springer, 2010.
+
+\bibitem{runge-kutta}
+Julyan~HE Cartwright and Oreste Piro.
+\newblock The dynamics of runge--kutta methods.
+\newblock {\em International Journal of Bifurcation and Chaos}, Vol.~2, No.~03,
+  pp. 427--449, 1992.
+
+\bibitem{range}
+Anouk~M Oosterwijk, Marianne~K Nieuwenhuis, Cees~P van~der Schans, and
+  Leonora~J Mouton.
+\newblock Shoulder and elbow range of motion for the performance of activities
+  of daily living: A systematic review.
+\newblock {\em Physiotherapy theory and practice}, Vol.~34, No.~7, pp.
+  505--528, 2018.
+
+\bibitem{horiuchi}
+Gen Horiuchi, Hirotaka Nakashima, and Shinji Sakurai.
+\newblock Mechanical energy flow in torso during baseball toss batting.
+\newblock {\em Sports Biomechanics}, Vol.~23, No.~9, pp. 1136--1146, 2024.
+
+\bibitem{haq}
+M~Haq, Usama Maqbool, and M~Ahamad.
+\newblock Kinematic, physical fitness and body composition of heighted and
+  short heighted shot-put throwers.
+\newblock {\em Int. J. Acad. Res. Bus. Soc. Sci}, Vol.~9, No.~6, pp. 1327--34,
+  2019.
+
+\bibitem{irving}
+IrvingP.Herman（著）, 斎藤太郎, 高木建次（共訳）.
+\newblock -翻訳- 人体物理学 ~動きと循環のメカニズムを探る~.
+\newblock NTC, 2009.
+
+\bibitem{mujoco}
+Emanuel Todorov, Tom Erez, and Yuval Tassa.
+\newblock Mujoco: A physics engine for model-based control.
+\newblock In {\em 2012 IEEE/RSJ international conference on intelligent robots
+  and systems}, pp. 5026--5033. IEEE, 2012.
+
+\bibitem{unitreeg1}
+{Unitree Robotics}.
+\newblock \url{https://www.unitree.com/g1}, 最終アクセス日 2025/2/5.
+
+\bibitem{spline}
+Sky McKinley and Megan Levine.
+\newblock Cubic spline interpolation.
+\newblock {\em College of the Redwoods}, Vol.~45, No.~1, pp. 1049--1060, 1998.
+
+\end{thebibliography}

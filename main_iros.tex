@@ -1,0 +1,169 @@
+\documentclass[letterpaper, 10 pt, conference,dvipdfmx]{ieeeconf}  % Comment this line out if you need a4paper
+
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+% \include{my_layout_grad}
+% \usepackage{jtygm}
+\usepackage{ikuo}%%便利コマンド集．
+\usepackage{siunitx}
+\usepackage{jtygm}
+\usepackage{bm}
+\usepackage{balance}
+\usepackage{amssymb}
+\usepackage{here}
+\usepackage{amsmath}
+
+\newcommand{\FIGDIR}{./fig}
+\newcommand{\ctext}[1]{\raise0.1ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+%In case you encounter the following error:
+%Error 1010 The PDF file may be corrupt (unable to open PDF file) OR
+%Error 1000 An error occurred while parsing a contents stream. Unable to analyze the PDF file.
+%This is a known problem with pdfLaTeX conversion filter. The file cannot be opened with acrobat reader
+%Please use one of the alternatives below to circumvent this error by uncommenting one or the other
+%\pdfobjcompresslevel=0
+%\pdfminorversion=4
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\title{\LARGE \bf
+二脚搬送ロボットにおける積載物転倒・滑り条件とLIPMでの抑制方法の検討
+% Preparation of Papers for IEEE Sponsored Conferences \& Symposia*
+}
+% 二脚搬送ロボットにおける積載物転倒・滑り条件とLIPMでの回避方法の検討
+
+\author{Kimikage Kanno$^{1}$ and Ikuo Mizuuchi$^{1}$% <-this % stops a space
+\thanks{$^{1}$Department of Mechanical Systems Engineering, Tokyo University of Agriculture and Technology, 2-24-16, Naka-cho, Koganei-city, Tokyo, Japan
+        {\tt\small \{kanno,ikuo\}@mizuuchi.lab.tuat.ac.jp}}%
+}
+% \author{Albert Author$^{1}$ and Bernard D. Researcher$^{2}$% <-this % stops a space
+% \thanks{*This work was not supported by any organization}% <-this % stops a space
+% \thanks{$^{1}$Albert Author is with Faculty of Electrical Engineering, Mathematics and Computer Science,
+%         University of Twente, 7500 AE Enschede, The Netherlands
+%         {\tt\small albert.author@papercept.net}}%
+% \thanks{$^{2}$Bernard D. Researcheris with the Department of Electrical Engineering, Wright State University,
+%         Dayton, OH 45435, USA
+%         {\tt\small b.d.researcher@ieee.org}}%
+% }
+
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract} 
+本論文では二足歩行ロボットに物や人を搭載して搬送する場合を想定し，
+積載物が転がらず滑らないロボットボディ加速度の範囲を定式化した．
+物を搬送するロボットにおいて，積載物を落とさずに運ぶことは必須である．
+そのためには積載物の転がりと滑りを抑制することが重要である．
+そして，積載物が転がらず滑らない歩幅，重心高さをLIPMを基に定式化した．
+そして，シミュレーション上にて定式化した歩幅，重心高さの範囲内であれば
+歩行中の積載物の転がりを防止し，滑りを軽減できることを確認した．\\        
+% This electronic document is a live template. The various components of your paper [title, text, heads, etc.] are already defined on the style sheet, as illustrated by the portions given in this document.
+\end{abstract}
+% 物を搬送するロボットが二足歩行となることで，段差を気にせずに移動でき，
+% 物を搬送できる範囲が広がる．物を搬送するロボットにおいて，積載物の
+% 落とさず運ぶことは必須である．そのためには転がりと滑りを抑制することは
+% 重要である．
+% 本論文では二足歩行ロボットに人や物を搭載することを想定し，積載物の転がりと滑りが
+% 生じないロボット加速度の範囲を定式化した．
+% そして，転がりと滑りが生じない歩幅，ZMP，重心高さの範囲をLIPMを基に定式化した．
+% その上で，シミュレーション上にて定式化した歩幅，重心高さの範囲内であれば
+% 転がりも滑りも生じないことを確認した．
+% 今後の展望として，転がりと滑りが生じない歩幅，ZMP，重心高さを3次元LIPM
+% を基に定式化する．そして，シミュレーション，実機を用いて検証を行う．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chap_1}
+\input{chap_2}
+\input{chap_3}
+\input{chap_4}
+% \input{chap_5}
+% \input{chap_6}
+
+% 1.緒言
+
+% 転がり・滑り始めない条件の定式化
+% 積載物とロボットのモデル化
+% ・一般的なモデル
+% ・長方形・二次元の場合
+% 転がりと滑りの条件わけ
+% ・一般的な場合
+% ・長方形・二次元の場合
+% 転がりの方が先に起こる場合
+% ・一般的な場合
+% ・長方形・二次元の場合
+% 滑りの方が先に起こる場合
+% ・一般的な場合
+% ・長方形・二次元の場合
+
+% LIPMでの転がり・滑りの回避方法の検討
+% 転がりの方が先に起こる場合
+% 滑りの方が先に起こる場合
+% メモ：長方形・二次元で考える
+
+% シミュレータによる検証
+% 転がりの方が先に起こる場合
+% 滑りの方が先に起こる場合
+
+% 結言
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{CONCLUSIONS}
+本論文では二足歩行ロボットに物や人を搭載して搬送する場合を想定し，
+積載物が転がらず滑らないロボットボディ加速度の範囲を定式化した．
+そして，積載物が転がらず滑らない歩幅，重心高さをLIPMを基に定式化した．
+そして，シミュレーション上にて定式化した歩幅，重心高さの範囲内であれば
+歩行中の積載物の転がりを防止し，滑りを軽減できることを確認した．\\
+　今後の展望としては，本論文の検証内容を我々が開発した
+小型の実機にて検証実験を行う．
+加えて，積載物の転がらず滑らない条件を一般化し，それを満たす歩行方法を3次元LIPMを基に定式化する．
+そして，シミュレーションと実機を用いて検証を行う．
+最終的には，人が乗れるサイズの実機を開発し，積載物を落とさない搬送を実現する．
+% 本論文では二足歩行ロボットに人や物を搭載することを想定し，積載物の転がりと滑りが
+% 生じないロボット加速度の範囲を定式化した．
+% そして，転がりと滑りが生じない歩幅，ZMP，重心高さの範囲をLIPMを基に定式化した．
+% その上で，シミュレーション上にて定式化した歩幅，重心高さの範囲内であれば
+% 転がりも滑りも生じないことを確認した．
+% 今後の展望として，転がりと滑りが生じない歩幅，ZMP，重心高さを3次元LIPM
+% を基に定式化する．そして，シミュレーション，実機を用いて検証を行う．
+% A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
+
+
+% \balance
+%  \addtolength{\textheight}{-2cm}   % This command serves to balance the column lengths
+          %12                        % on the last page of the document manually. It shortens
+                                  % the textheight of the last page by a suitable amount.
+                                  % This command does not take effect until the next page
+                                  % so it should come on the page before the last. Make
+                                  % sure that you do not shorten the textheight too much.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\nocite{*}
+\bibliography{reference}
+\bibliographystyle{junsrt}
+
+\end{document}

@@ -1,0 +1,246 @@
+\section{ロボット歩行時における転がりと滑りの抑制方法の検証}
+\subsection{シミュレーション条件}
+\begin{figure}[t]
+    \begin{center}
+    \includegraphics[width=60mm]{./fig/robot_3.eps}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Model of bipedal robot}
+    % \vspace*{-1cm}
+    \figlabel{robot.eps}
+  \end{center}
+\end{figure}
+
+\begin{figure}[t]
+    \begin{minipage}[b]{0.45\linewidth}
+      \centering
+      \includegraphics[width=1.0\linewidth]{./fig/loadA.eps}%
+      % \hspace{-10truemm}%水平方向のFig.の位置
+      \vspace*{-0.1cm}%鉛直方向のFig.の位置
+      \caption{Model of load A}
+      \figlabel{loadA.eps}
+    \end{minipage}
+    \begin{minipage}[b]{0.45\linewidth}
+      \centering
+      \includegraphics[width=1.0\linewidth]{./fig/loadB.eps}%
+    %  \hspace{10truemm}%水平方向のFig.の位置 
+      \caption{Model of load B}
+      \figlabel{loadB.eps}
+    \end{minipage}
+    %\caption{subcaptionを用いて図を並べる}
+  \end{figure}
+
+  前章で求めた歩幅と重心高さによって積載物が
+  転がり始めず，滑り始めないで歩行が可能かを確認するために
+シミュレーション上にて検証を行った．使用したシミュレータは
+Choreonoidである．使用したロボットのモデルを\figref{robot.eps}に示す．
+ロボットモデルは股ヨー・ロール・ピッチ軸，膝ピッチ軸，足首ロール・ピッチ軸の
+片足6自由度，全12自由度で構成される．
+% ロボットモデルの大きさは人を載せられる程度に設定した．
+ロボットボディの慣性モーメントはLIPMにできるだけ近づけるために
+$10^4$ kg${\mathrm{m}^2}$に設定した．
+積載物のモデルは2つ用意し，\equref{1.3}を用いてパラメータを設定した．
+それぞれ，\figref{loadA.eps}に示す転がりが先に起こる場合のモデルをA，\figref{loadB.eps}に示す
+滑りが先に起こる場合ののモデルをBとした．
+ロボットモデルと2つの積載物モデルの詳細を\tabref{table1}に示す．\\
+　歩幅の検証の際には，重心高さを0.7 mに設定した．よって，
+\tabref{table1}と\equref{1.8}，\equref{2.0}より
+転がり始めない歩幅と滑り始めない歩幅は同じく0.35 m以下になった．\\
+　重心高さの検証の際には，歩幅を0.3 mに設定した．よって，
+\tabref{table1}と\equref{1.9}，\equref{2.1}より
+転がり始めない重心高さと滑り始めない重心高さは同じく0.68 m以上になった．\\
+　以上より検証条件を\tabref{table2}に示すように設定した．
+積載物の縦幅は$2{s}_{\mathrm{lz}}$，横幅は$2{s}_{\mathrm{lx}}$に相当する．
+\tabref{table2}を満たすように5 s間ロボットを積載物を載せた状態で歩行させる．
+% モデル誤差や横方向加速度の影響等を考慮した上で，\tabref{table2}に示すように設定した．
+\subsection{ロボット歩行時の積載物の転がり抑制の検証}
+\subsubsection{歩幅を調節した結果}
+\label {4.1.1}
+歩幅を調節することで積載物の転がりを抑制できるか確認を行った．
+歩幅0.3 m，0.4 mで歩行した際の積載物Aのピッチ角を\figref{pitch_0.3_0.4_r.pdf}に示す．\\
+　\figref{pitch_0.3_0.4_r.pdf}より，歩幅0.35 m以上の歩幅0.4 mで歩行した際は
+積載物のピッチ角の最大値が7.4 degとなり，転がりが生じた．
+一方で，歩幅0.35 m以下の歩幅0.3 mで歩行した際は積載物のピッチ角の最大値が0.16 degとなり，
+歩幅0.4 mと比べてピッチ角が97.8 \%抑えられた．
+ピッチ角0.16degはボディへのめり込みによるものであり，
+転がりによるものではないと考えられる．
+したがって，\equref{1.8}により求めた歩幅の範囲内において転がりを防止できた．\\
+% 　また，\figref{xdisp_0.3_0.4_r.pdf}より歩幅0.3 mの時は相対変位の最大値が
+% 約5.9 mmとなっており，滑りも抑制されている．
+% 一方で歩幅0.4 mの時は相対変位の最大値が約30.9 mmとなっている．
+% これは，ピッチ角の転がりが生じたことで積載物の重心位置が変化した結果である．
+% 　歩幅0.3 m，0.4 mで歩行した際の積載物Aのピッチ角とロボットボディと
+% 積載物間の相対変位をそれぞれ\figref{pitch_0.3_0.4_r.pdf}と
+% \figref{xdisp_0.3_0.4_r.pdf}に示す．\\
+\subsubsection{重心高さを調節した結果}
+\label {4.1.2}
+重心高さを調節することで積載物の転がりを抑制できるか確認を行った．
+重心高さ0.7 m，0.55 mで歩行した際の積載物Aのピッチ角を
+\figref{pitch_0.7_0.55_r.pdf}に示す．\\
+　\figref{pitch_0.7_0.55_r.pdf}より，
+重心高さ0.68 m以下の歩幅0.55 mで歩行した際は
+積載物のピッチ角の最大値が90 degとなり，転がりが生じた後に落下した．
+一方で，重心高さ0.68 m以上の重心高さ0.7 mで歩行した際は積載物のピッチ角の
+最大値が0.16 degとなり，歩幅0.4 mと比べてピッチ角が99.8 \%抑えられた．
+\ref{4.1.1}節と同様に，ピッチ角0.16degはボディへのめり込みによるものであり，
+転がりによるものではないと考えられる．
+したがって，\equref{1.9}により求めた重心高さの範囲内において転がりを防止できた．\\
+% 　また，\figref{xdisp_0.7_0.55_r.pdf}より歩幅0.3 mの時は相対変位の最大値が約5.9 mmとなって
+% おり，滑りも抑制されている．一方で歩幅0.4 mの時は相対変位の最大値が約804 mmとなっている．
+% これは，積載物が落下したことによって生じたものである．
+% 　重心高さ0.7 m，0.55 mで歩行した際の積載物Aのピッチ角とロボットボディと
+% 積載物間の相対変位をそれぞれ\figref{pitch_0.7_0.55_r.pdf}と\figref{xdisp_0.7_0.55_r.pdf}
+% に示す．\\
+\begin{table}[t]
+    % \vspace*{0.4cm}%鉛直方向のFig.の位置
+    \caption{Parameters of the model}
+    \tablabel{table1}
+    \begin{center}
+        
+    \scalebox{0.88}{
+    \begin{tabular}{|l | r | r | r|}%1) 2a) 2b) 3) 振幅　振動数　波形　
+
+        \hline
+        モデル名&質量&大きさ&最大静止摩擦係数\\ 
+        \hline
+        ロボット&20 kg&全高 1.2 m&-\\ 
+        
+        積載物A&0.5 kg&縦・横幅 0.4，0.1 m&0.5\\         
+        
+        積載物B&0.5 kg&縦・横幅 0.3，0.1 m&0.25\\ 
+        \hline
+    \end{tabular}
+    }
+    \end{center}
+\end{table}
+
+\begin{table}[t]
+    % \vspace*{0.4cm}%鉛直方向のFig.の位置
+    \caption{Verification condition}
+    \tablabel{table2}
+    \begin{center}
+        
+    \scalebox{0.9}{
+    \begin{tabular}{|l | r | r | r | r |}%1) 2a) 2b) 3) 振幅　振動数　波形　
+
+        \hline
+        場合分&使用モデル&調整したパラメータ&パラメータ値\\ 
+        \hline
+        転がり&積載物A&歩幅&0.3 m，0.4 m\\ 
+        転がり&積載物A&重心高さ&0.55 m，0.7 m\\
+        滑り&積載物B&歩幅&0.3 m，0.4 m\\         
+        滑り&積載物B&重心高さ&0.55 m，0.7 m\\ 
+        \hline
+    \end{tabular}
+    }
+    \end{center}
+\end{table}
+
+\subsection{ロボット歩行時の積載物の滑り抑制の検証}
+\subsubsection{歩幅を調節した結果}
+\label {4.1.3}
+歩幅を調節することで積載物の滑りを抑制できるか確認を行った．
+歩幅0.3 m，0.4 mで歩行した際のロボットボディと
+積載物B間の相対変位を\figref{xdisp_0.3_0.4_s.pdf}に示す．\\
+　\figref{xdisp_0.3_0.4_s.pdf}より，歩幅0.35 m以上の歩幅0.4 mで歩行した際は
+ロボットボディと積載物B間の相対変位の最大値が21.2 mmとなった．
+一方で，歩幅0.35 m以下の歩幅0.3 mで歩行した際は相対変位の最大値が16.3 mmとなり，
+歩幅0.4 mと比べて相対変位が23 \%抑えられた．
+したがって，\equref{2.0}により求めた歩幅の範囲内において滑りを軽減できた．
+滑りが生じた原因としては，ロボットボディの横方向加速度，ロボットのモデル化誤差，
+Choreonoidの滑りのモデルの誤差等が考えられる．\\
+% 　また，\figref{pitch_0.3_0.4_s.pdf}より歩幅0.3 m，0.4 mの時のピッチ角の最大値が
+% それぞれ0.09 deg，0.06 degとなっており，転がりは抑制されている．
+% 　歩幅0.3 m，0.4 mで歩行した際の積載物Bのピッチ角とロボットボディと
+% 積載物間の相対変位をそれぞれ\figref{pitch_0.3_0.4_s.pdf}と\figref{xdisp_0.3_0.4_s.pdf}
+% に示す．\\
+
+\subsubsection{重心高さを調節した結果}
+重心高さを調節することで積載物の滑りを抑制できるか確認を行った．
+重心高さ0.7 m，0.55 mで歩行した際のロボットボディと
+積載物B間の相対変位を\figref{xdisp_0.7_0.55_s.pdf}に示す．\\
+　\figref{xdisp_0.7_0.55_s.pdf}より，重心高さ0.68 m以下の重心高さ0.55 mで
+歩行した際はロボットボディと積載物B間の相対変位の最大値が31.4 mmとなった．
+一方で，重心高さ0.68 m以下の重心高さ0.7 mで歩行した際は相対変位の最大値が
+16.3 mmとなり，重心高さ0.55 mと比べて相対変位が48 \%抑えられた．
+したがって，\equref{2.1}により求めた重心高さの範囲内において滑りを軽減できた．
+滑りが生じた原因としては，\ref{4.1.3}節と同様であると考えられる．\\
+% 　また，\figref{pitch_0.7_0.55_s.pdf}より重心高さ0.7 m，0.55 mの時のピッチ角の最大値が
+% それぞれ0.09 deg，0.012 degとなっており，転がりも抑制されている．
+% 　重心高さ0.7 m，0.55 mで歩行した際の積載物のピッチ角とロボットボディと
+% 積載物間の相対変位をそれぞれ\figref{pitch_0.7_0.55_s.pdf}と\figref{xdisp_0.7_0.55_s.pdf}
+% に示す．\\
+
+\begin{figure}[tb]
+    \begin{center}
+    \includegraphics[width=90mm]{./fig/pitch_0.3_0.4_r.pdf}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Pitch angle of load when the step length is adjusted}
+    % \vspace*{-1cm}
+    \figlabel{pitch_0.3_0.4_r.pdf}
+\end{center}
+\end{figure}
+% \begin{figure}[tb]
+%     \begin{center}
+%     \includegraphics[width=90mm]{./fig/xdisp_0.3_0.4_r.pdf}
+%     % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+%     \caption{歩幅を調節した時の積載物Aとロボットボディの相対変位}
+%     % \vspace*{-1cm}
+%     \figlabel{xdisp_0.3_0.4_r.pdf}
+% \end{center}
+% \end{figure}
+\begin{figure}[tb]
+    \begin{center}
+    \includegraphics[width=90mm]{./fig/pitch_0.7_0.55_r.pdf}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Pitch angle of load when the CoG height is adjusted}
+    % \vspace*{-1cm}
+    \figlabel{pitch_0.7_0.55_r.pdf}
+\end{center}
+\end{figure}
+% \begin{figure}[tb]
+%     \begin{center}
+%     \includegraphics[width=90mm]{./fig/xdisp_0.7_0.55_r.pdf}
+%     % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+%     \caption{重心高さを調節した時の積載物Aとロボットボディの相対変位}
+%     % \vspace*{-1cm}
+%     \figlabel{xdisp_0.7_0.55_r.pdf}
+% \end{center}
+% \end{figure}
+% \begin{figure}[tb]
+%     \begin{center}
+%     \includegraphics[width=90mm]{./fig/pitch_0.3_0.4_s.pdf}
+%     % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+%     \caption{歩幅を調節した時の積載物Bのピッチ角}
+%     % \vspace*{-1cm}
+%     \figlabel{pitch_0.3_0.4_s.pdf}
+% \end{center}
+% \end{figure}
+\begin{figure}[t]
+    \begin{center}
+    \includegraphics[width=90mm]{./fig/xdisp_0.3_0.4_s.pdf}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Displacement between the robot and the load when the step length is adjusted}
+    % \vspace*{-1cm}
+    \figlabel{xdisp_0.3_0.4_s.pdf}
+\end{center}
+\end{figure}
+% \begin{figure}[tb]
+%     \begin{center}
+%     \includegraphics[width=90mm]{./fig/pitch_0.7_0.55_s.pdf}
+%     % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+%     \caption{重心高さを調節した時の積載物Bのピッチ角}
+%     % \vspace*{-1cm}
+%     \figlabel{pitch_0.7_0.55_s.pdf}
+% \end{center}
+% \end{figure}
+\begin{figure}[tb]
+    \begin{center}
+    \includegraphics[width=90mm]{./fig/xdisp_0.7_0.55_s.pdf}
+    % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+    \caption{Displacement between the robot and the load when the CoG height is adjusted}
+    % \vspace*{-1cm}
+    \figlabel{xdisp_0.7_0.55_s.pdf}
+\end{center}
+\end{figure}
+
+

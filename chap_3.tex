@@ -1,0 +1,64 @@
+\section{LIPMにおける転がりと滑りの抑制方法の検討}
+\label {3}
+\begin{figure}[t]
+  \begin{center}
+  \includegraphics[width=70mm]{./fig/LIPM_2.eps}
+  % \vspace*{-0.5cm}%鉛直方向のFig.の位置
+  \caption{Linear inverted pendulum mode}
+  % \vspace*{-1cm}
+  \figlabel{LIPM.eps}
+\end{center}
+\end{figure}
+
+積載物が転がり始めず，滑り始めないロボットの歩行方法を
+検討するために，ロボットを\figref{LIPM.eps}に示す線形倒立振子モード
+(LIPM)\cite{refer8}として考える．${p}_{\mathrm{sup}}$は
+前後方向における足の接地位置，${c}_{\mathrm{rx}}$は前後方向
+重心位置，${c}_{\mathrm{rz}}$は重心高さである．
+また，\ref{2.1}節にてモデル化したロボットボディの重心位置とLIPMにおける
+ロボットの重心位置は足の慣性を無視し，等しいと考える．\\
+　LIPMではロボットの重心高さを一定に保つため，
+物を上下に揺らさずに搬送できる．加えて，\equref{1.5}と\equref{1.7}に
+含まれる上下方向重心加速度$\ddot{c}_{\mathrm{rz}}$は0 m/${\mathrm{s}^2}$となり，
+式が簡単になる．\\
+　支持脚切替時の前後方向重心位置を${c}_{\mathrm{rz}}(0)$，
+前後方向歩幅を${w}_{\mathrm{x}}=2({c}_{\mathrm{rz}}(0)-{p}_{\mathrm{sup}})$
+とすると，LIPMにおけるロボットの重心加速度は支持脚切替時に最大値
+${\ddot{c}_{\mathrm{rx}}}(0)=\frac{{w}_{\mathrm{x}}}{2{c}_{\mathrm{rz}}}g$を取る．
+
+\subsection{積載物が転がり始めない歩行方法の検討}
+\label {3.1}
+まずは積載物が転がり始めない歩行方法をLIPMにおける重心加速度から検討する．
+LIPMにおけるロボットの重心加速度の最大値より，歩幅${w}_{\mathrm{x}}$と重心高さ
+${c}_{\mathrm{rz}}$によってロボットの重心加速度の最大値が調節できることがわかる．
+したがって，\equref{1.5}とロボットの重心加速度の最大値より
+積載物が転がり始めない歩幅と重心高さの範囲はそれぞれ
+\equref{1.8}，\equref{1.9}で表される．\\
+\begin{eqnarray}
+  \equlabel{1.8}
+  {w}_{\mathrm{x}} &\leq& 2\frac{{s}_{\mathrm{lx}}}{{s}_{\mathrm{lz}}}{c}_{\mathrm{rx}}\\
+  \equlabel{1.9}
+  {c}_{\mathrm{rz}} &\geq& \frac{{s}_{\mathrm{lz}}}{2{s}_{\mathrm{lx}}}{w}_{\mathrm{x}}
+\end{eqnarray}
+以上から，歩幅，重心高さを調節することで積載物の転がりは抑制できる．
+% 　また，初期重心位置と接地位置の差分は歩幅に相当するため，\equref{1.8}は
+% 歩幅を用いて\equref{1.9}で表すこともできる．\\
+% 　また，接地位置は足に面積を持つ場合や両足接地時はZMPに相当する．
+\subsection{積載物が滑り始めない歩行方法の検討}
+\label {3.2}
+積載物が滑り始めない歩行方法をLIPMにおける重心加速度から検討する．
+転がりと同様に，\equref{1.7}とロボットの重心加速度の最大値より
+積載物が滑り始めない歩幅と重心高さの範囲はそれぞれ
+\equref{2.0}，\equref{2.1}で表される．\\
+\begin{eqnarray}
+  \equlabel{2.0}
+  {w}_{\mathrm{x}} &\leq& 2\mu{c}_{\mathrm{rx}}\\
+  \equlabel{2.1}
+  {c}_{\mathrm{rz}} &\geq& \frac{{w}_{\mathrm{x}}}{2\mu}
+\end{eqnarray}
+以上から，転がりと同様に歩幅，重心高さを調節することで積載物の滑りは抑制できる．
+% 　また，初期重心位置と接地位置の差分は歩幅に相当するため，\equref{2.0}は
+% 歩幅を用いて\equref{2.2}で表すこともできる．\\
+% 　また，接地位置は足に面積を持つ場合や両足接地時はZMPに相当する．
+% 以上から，転がりと同様にZMP，歩幅，重心高さを調節することで積載物の滑りは抑制できる．
+ 
